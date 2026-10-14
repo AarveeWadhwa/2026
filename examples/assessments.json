@@ -1,0 +1,20 @@
+{
+  "assessments": [
+    {
+      "tender_id": "BP-DEMO-01",
+      "tender": {"tender_id": "BP-DEMO-01", "title": "Supply of IT equipment", "deadline": "05-Nov-2026"},
+      "eligibility_result": {
+        "company_name": "Example Systems", "eligibility_score": 80,
+        "checks": [{"requirement": "Minimum turnover", "status": "PASS", "evidence": "Audited accounts supplied"}],
+        "failed_checks": [], "unknown_checks": []
+      },
+      "compliance_result": {
+        "company_name": "Example Systems", "document_readiness_score": 75,
+        "checklist": [
+          {"required_document": "GST certificate", "status": "AVAILABLE"},
+          {"required_document": "OEM authorization", "status": "MISSING", "action": "Obtain OEM authorization letter"}
+        ]
+      }
+    }
+  ]
+}

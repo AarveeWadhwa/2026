@@ -1,0 +1,24 @@
+TENDER: Cybersecurity Audit and Network Monitoring
+Tender ID: BP-2026-004
+Organization: Sample Public Sector Institution
+Service location: Pune, Maharashtra
+
+Eligibility:
+Minimum annual turnover of ₹1.5 crore.
+Minimum relevant experience of 5 years in cybersecurity or network monitoring.
+Bidders should hold ISO 27001 certification or equivalent security certification.
+
+Technical specifications:
+Conduct cybersecurity audit, vulnerability assessment, network monitoring and incident response support.
+Submit a technical methodology and service delivery plan.
+
+Financial conditions:
+EMD: ₹75,000.
+Tender fee: ₹3,000.
+
+Documents required:
+PAN card, GST certificate, audited financial statements, turnover certificate, experience certificate,
+ISO certificate, technical bid and financial bid.
+
+Bid submission deadline: 20-Nov-2026.
+Evaluation criteria: Technical proposal scoring followed by financial evaluation.

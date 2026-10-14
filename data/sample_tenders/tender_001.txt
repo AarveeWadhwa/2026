@@ -1,0 +1,25 @@
+TENDER: Supply and Installation of Computer Equipment
+Tender ID: BP-2026-001
+Organization: Sample State Procurement Department
+Location: Maharashtra
+
+Eligibility:
+Minimum annual turnover of ₹1 crore during any three of the last five financial years.
+Minimum relevant experience of 3 years supplying computer hardware to public or private organizations.
+Bidders must have valid GST registration and PAN.
+
+Technical specifications:
+Supply 100 laptops with minimum 16 GB RAM and 512 GB SSD.
+Networking equipment must support current industry standards.
+Warranty: minimum 3 years onsite support.
+
+Financial conditions:
+Earnest Money Deposit (EMD): ₹50,000.
+Tender fee: ₹2,000.
+
+Documents required:
+PAN card, GST certificate, audited financial statements, turnover certificate,
+experience certificate, OEM authorization, technical bid, financial bid.
+
+Bid submission deadline: 05-Nov-2026.
+Evaluation criteria: Technical compliance followed by financial evaluation.

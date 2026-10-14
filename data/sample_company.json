@@ -1,0 +1,25 @@
+{
+  "company_name": "Demo IT Solutions",
+  "industry": "IT services",
+  "services": [
+    "computer hardware",
+    "networking",
+    "software support"
+  ],
+  "location": "Pune, Maharashtra",
+  "annual_turnover_inr": 14000000,
+  "years_experience": 4,
+  "certifications": [
+    "ISO 9001"
+  ],
+  "available_documents": [
+    "PAN.pdf",
+    "GST Registration Certificate.pdf",
+    "ISO Certificate.pdf",
+    "Turnover Certificate.pdf"
+  ],
+  "keywords": [
+    "IT",
+    "laptops"
+  ]
+}

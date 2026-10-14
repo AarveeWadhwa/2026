@@ -1,0 +1,66 @@
+[
+  {
+    "tender_id": "BP-2026-001",
+    "title": "Supply and Installation of Computer Equipment",
+    "organization": "Sample State Procurement Department",
+    "location": "Maharashtra",
+    "deadline": "2026-11-05",
+    "estimated_value": 2500000,
+    "categories": [
+      "IT hardware",
+      "laptops",
+      "desktop computers",
+      "networking"
+    ],
+    "description": "Supply laptops, desktop computers, networking equipment and installation support for government offices.",
+    "source_url": "https://example.gov.in/tenders/BP-2026-001",
+    "document_path": "data/sample_tenders/tender_001.txt"
+  },
+  {
+    "tender_id": "BP-2026-002",
+    "title": "Website Maintenance and Software Development Services",
+    "organization": "Sample Municipal Corporation",
+    "location": "Pune, Maharashtra",
+    "deadline": "2026-11-12",
+    "estimated_value": 1800000,
+    "categories": [
+      "software",
+      "web development",
+      "IT services"
+    ],
+    "description": "Annual website maintenance, software development, cybersecurity updates and technical support.",
+    "source_url": "https://example.gov.in/tenders/BP-2026-002",
+    "document_path": "data/sample_tenders/tender_002.txt"
+  },
+  {
+    "tender_id": "BP-2026-003",
+    "title": "Supply of Hospital Furniture",
+    "organization": "Sample District Health Office",
+    "location": "Maharashtra",
+    "deadline": "2026-10-30",
+    "estimated_value": 900000,
+    "categories": [
+      "medical furniture",
+      "hospital supplies"
+    ],
+    "description": "Supply and installation of hospital beds, chairs, storage cabinets and related furniture.",
+    "source_url": "https://example.gov.in/tenders/BP-2026-003",
+    "document_path": "data/sample_tenders/tender_003.txt"
+  },
+  {
+    "tender_id": "BP-2026-004",
+    "title": "Cybersecurity Audit and Network Monitoring",
+    "organization": "Sample Public Sector Institution",
+    "location": "Pune, Maharashtra",
+    "deadline": "2026-11-20",
+    "estimated_value": 3200000,
+    "categories": [
+      "cybersecurity",
+      "networking",
+      "IT services"
+    ],
+    "description": "Cybersecurity audit, vulnerability assessment, network monitoring and incident response support.",
+    "source_url": "https://example.gov.in/tenders/BP-2026-004",
+    "document_path": "data/sample_tenders/tender_004.txt"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "BidPilot AI - Scheduled Source Monitor",
+  "nodes": [
+    {"parameters":{"rule":{"interval":[{"field":"minutes","minutesInterval":30}]}},"id":"schedule","name":"Every 30 minutes","type":"n8n-nodes-base.scheduleTrigger","typeVersion":1.2,"position":[240,300]},
+    {"parameters":{"method":"POST","url":"http://host.docker.internal:8000/api/monitor/run","sendBody":true,"specifyBody":"json","jsonBody":"={}","options":{"timeout":60000}},"id":"monitor","name":"Poll configured sources","type":"n8n-nodes-base.httpRequest","typeVersion":4.2,"position":[500,300]},
+    {"parameters":{"content":"Configure official HTTPS sources in data/monitor_sources.json. This workflow detects content changes; a source-specific parser is still required to extract tender fields. If n8n runs outside Docker, replace host.docker.internal with the API host.","height":160,"width":360},"id":"note","name":"Setup notes","type":"n8n-nodes-base.stickyNote","typeVersion":1,"position":[500,80]}
+  ],
+  "connections":{"Every 30 minutes":{"main":[[{"node":"Poll configured sources","type":"main","index":0}]]}},
+  "active":false,
+  "settings":{"executionOrder":"v1"},
+  "versionId":"bidpilot-monitor-workflow-v1",
+  "meta":{"templateCredsSetupCompleted":true},
+  "tags":[]
+}
