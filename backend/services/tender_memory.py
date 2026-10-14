@@ -8,6 +8,7 @@ import hashlib
 from contextlib import contextmanager
 import json
 import sqlite3
+from backend.services.db import connect, postgres_enabled
 from pathlib import Path
 from typing import Any
 from datetime import datetime, timezone
@@ -15,14 +16,13 @@ from datetime import datetime, timezone
 
 class TenderMemoryStore:
     def __init__(self, db_path: str | Path):
-        self.db_path = Path(db_path)
+        self.db_path = Path(db_path) if not postgres_enabled() else Path('.')
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._initialize()
 
     @contextmanager
     def _connect(self):
-        conn = sqlite3.connect(self.db_path)
-        conn.row_factory = sqlite3.Row
+        conn = connect(self.db_path)
         try:
             yield conn
             conn.commit()

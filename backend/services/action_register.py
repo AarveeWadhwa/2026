@@ -6,6 +6,7 @@ replacement for a full project-management or notification platform.
 """
 from __future__ import annotations
 import hashlib, json, sqlite3
+from backend.services.db import connect, postgres_enabled
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -27,11 +28,11 @@ PRIORITIES = {"low", "medium", "high", "urgent"}
 
 class ActionRegister:
     def __init__(self, db_path: str | Path):
-        self.db_path = Path(db_path); self.db_path.parent.mkdir(parents=True, exist_ok=True); self._init()
+        self.db_path = Path(db_path) if not postgres_enabled() else Path('.'); self.db_path.parent.mkdir(parents=True, exist_ok=True); self._init()
 
     @contextmanager
     def _db(self):
-        con = sqlite3.connect(self.db_path); con.row_factory = sqlite3.Row
+        con = connect(self.db_path)
         try:
             yield con; con.commit()
         except Exception:

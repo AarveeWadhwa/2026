@@ -172,3 +172,7 @@ See [`docs/action_register_task_management.md`](docs/action_register_task_manage
 
 
 The Action Register opens as a separate workspace from the sidebar. Its task list scrolls independently, so a large task backlog does not create an endlessly long dashboard.
+
+
+## Supabase / Render deployment
+See `docs/supabase_render_deployment.md` for PostgreSQL persistence configuration.

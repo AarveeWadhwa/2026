@@ -6,6 +6,7 @@ Portal-specific extraction still requires a validated source adapter.
 """
 from __future__ import annotations
 import hashlib, json, sqlite3, time
+from backend.services.db import connect, postgres_enabled
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -15,9 +16,9 @@ from urllib.parse import urlparse
 
 class SourceMonitor:
     def __init__(self, db_path: str | Path, config_path: str | Path):
-        self.db_path, self.config_path = Path(db_path), Path(config_path)
+        self.db_path, self.config_path = (Path(db_path) if not postgres_enabled() else Path('.')), Path(config_path)
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        with sqlite3.connect(self.db_path) as db:
+        with connect(self.db_path) as db:
             db.execute('''CREATE TABLE IF NOT EXISTS monitored_sources (
                 source_id TEXT PRIMARY KEY, url TEXT NOT NULL, content_hash TEXT NOT NULL,
                 etag TEXT, last_modified TEXT, last_checked_at TEXT NOT NULL, last_status TEXT NOT NULL,
@@ -53,9 +54,9 @@ class SourceMonitor:
             try:
                 body, etag, modified, status = fetcher(source)
                 digest = hashlib.sha256(body).hexdigest()
-                with sqlite3.connect(self.db_path) as db:
+                with connect(self.db_path) as db:
                     previous = db.execute('SELECT content_hash FROM monitored_sources WHERE source_id=?', (sid,)).fetchone()
-                    old_hash = previous[0] if previous else None
+                    old_hash = (previous['content_hash'] if postgres_enabled() else previous[0]) if previous else None
                     event = 'baseline' if old_hash is None else ('changed' if old_hash != digest else 'unchanged')
                     db.execute('''INSERT INTO monitored_sources(source_id,url,content_hash,etag,last_modified,last_checked_at,last_status,last_change_json)
                         VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(source_id) DO UPDATE SET url=excluded.url,content_hash=excluded.content_hash,
@@ -73,8 +74,7 @@ class SourceMonitor:
                 'note':'Content change detection is generic. A source-specific parser is required to extract corrigendum fields and automatically rerun affected tender agents.'}
 
     def status(self) -> dict[str, Any]:
-        with sqlite3.connect(self.db_path) as db:
-            db.row_factory=sqlite3.Row
+        with connect(self.db_path) as db:
             rows=db.execute('SELECT source_id,url,content_hash,last_checked_at,last_status,last_change_json FROM monitored_sources ORDER BY source_id').fetchall()
             events=db.execute('SELECT event_id,source_id,url,event_type,observed_at,summary FROM monitor_events ORDER BY event_id DESC LIMIT 50').fetchall()
         return {'sources':[dict(r) for r in rows], 'recent_events':[dict(r) for r in events], 'configured_sources':len(self.sources())}

@@ -220,7 +220,7 @@ def run_pipeline(request: RunRequest):
                 "replanning_execution": replanning_execution,
                 "action_register": {**action_sync, "count": action_snapshot["count"], "summary": action_snapshot["summary"]},
                 "memory": {"enabled": True, "stored_tender_count": len(MEMORY.get_company_history(company)),
-                           "updated_records": memory_updates, "storage": "local SQLite; scoped by company profile",
+                           "updated_records": memory_updates, "storage": "Supabase PostgreSQL" if __import__("os").getenv("DATABASE_URL") else "local SQLite; scoped by company profile",
                            "learned_preferences": learned},
                 "summary": {"tenders_found": discovery.get("result_count", 0),
                             "tenders_assessed": assessment.get("assessed_tender_count", 0),
